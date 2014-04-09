@@ -19,7 +19,7 @@ module FormtasticBootstrap
         # Formtastic marks these as 'radio' but Bootstrap does something
         # with that, so change it to 'radio_buttons'.
         super.tap do |options|
-          options[:class] = options[:class].gsub("radio", "radio_buttons")
+          options[:class] = options[:class].gsub(/(\A|\s)radio(\z|\s)/, "radio_buttons")
         end
       end
 

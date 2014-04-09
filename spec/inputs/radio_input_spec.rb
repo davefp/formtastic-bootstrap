@@ -264,4 +264,17 @@ describe 'radio input' do
     end
   end
 
+  describe "when wrapper_html class is set" do
+    before do
+      @output_buffer = ''
+      mock_everything
+
+      concat(semantic_form_for(:project) do |builder|
+        concat(builder.input(:author_id, :as => :radio, :collection => [1, 2, 3], :wrapper_html => {:class => 'radio-inline'}))
+      end)
+    end
+
+    def it_should_have_input_wrapper_with_class('radio-inline')
+  end
+
 end
